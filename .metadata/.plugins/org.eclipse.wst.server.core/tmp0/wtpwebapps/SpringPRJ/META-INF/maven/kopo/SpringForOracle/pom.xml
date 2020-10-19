@@ -27,6 +27,12 @@
 	
 
 	<dependencies>
+	<!-- OCR 구현을 위한 Tesserarac4 라이브러리 다운로드 -->
+	<dependency>
+	<groupId>net.sourceforge.tess4j</groupId>
+	<artifactId>tess4j</artifactId>
+	<version>4.4.1</version>
+	</dependency>
 	
 	<!-- 웹 크롤링을 위해 jsoup 외부 라이브러리 추가 -->
 	
