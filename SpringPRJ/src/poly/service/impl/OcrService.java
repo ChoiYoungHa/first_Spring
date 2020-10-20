@@ -6,13 +6,18 @@ import org.springframework.stereotype.Service;
 import net.sourceforge.tess4j.ITesseract;
 import net.sourceforge.tess4j.Tesseract;
 import poly.dto.OcrDTO;
+import poly.persistance.mapper.IOcrMapper;
 import poly.service.IOcrService;
 import poly.util.CmmUtil;
 
 import java.io.File;
 
+import javax.annotation.Resource;
+
 @Service("OcrService")
 public class OcrService implements IOcrService {
+	@Resource(name = "OcrMapper")
+	IOcrMapper IocrMapper;
 	
 	private Logger log = Logger.getLogger(this.getClass());
 
@@ -42,8 +47,9 @@ public class OcrService implements IOcrService {
 		//읽은 글자를 DTO에 저장하기
 		pDTO.setTextFromImage(result);
 		
-		log.info("result : " + result);
+		IocrMapper.getReadforImageText(pDTO);
 		
+		log.info("result : " + result);
 		log.info("getFoodInfoFromWEB start!");
 		
 		return pDTO;

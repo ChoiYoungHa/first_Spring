@@ -45,6 +45,8 @@ public class OcrController {
 	
 	//@RequestParam이 multiparfile에 저장되는 name명을 담아줌
 	@RequestMapping(value="/ocr/getReadforImageText")
+	
+
 	public String ReadforImageText(ServletRequest request, ServletResponse response, ModelMap model,
 		@RequestParam(value="fileUpload") MultipartFile mf) throws Exception{
 		
@@ -54,6 +56,7 @@ public class OcrController {
 		//업로드하는 실제 파일명
 		//다운로드 기능 구현 시, 임의로 정의된 파일명을 원래대로 만들어주기 위한 목적
 		String originalFileName = mf.getOriginalFilename();
+		String reg_id = "ChoiYoungHa";
 		
 		//파일 확장자 가져오기
 		String ext = originalFileName.substring(originalFileName.lastIndexOf(".")+1, originalFileName.length()).toLowerCase();
@@ -83,8 +86,13 @@ public class OcrController {
 			
 			OcrDTO pDTO = new OcrDTO();
 			
-			pDTO.setFileName(saveFileName); 
-			pDTO.setFilePath(saveFilePath);
+			pDTO.setFileName(saveFileName); // 서버에저장될 파일이름
+			pDTO.setFilePath(saveFilePath); // 서버에 저장될 파일경로
+			pDTO.setOrg_file_name(originalFileName); // 원래 파일이름
+			pDTO.setExt(ext); // 파일확장자
+			pDTO.setReg_id(reg_id); //작성자
+			
+			
 			
 			OcrDTO rDTO = orcService.getReadforImageText(pDTO);
 			

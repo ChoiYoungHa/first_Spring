@@ -9,6 +9,6 @@
 		<typeAlias type="poly.dto.UserinfoDTO" alias="UserinfoDTO"/>
 		<typeAlias type="poly.dto.MovieDTO" alias="MovieDTO"/>
 		<typeAlias type="poly.dto.FoodDTO" alias="FoodDTO"/>
-		
+		<typeAlias type="poly.dto.OcrDTO" alias="OcrDTO"/>
     </typeAliases>
 </configuration>
