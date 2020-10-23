@@ -23,7 +23,7 @@ public class MailService implements IMailService {
 	private Logger log =Logger.getLogger(this.getClass());
 	
 	final String host = "smtp.naver.com";
-	final String user = "";
+	final String user = "askillogod159@naver.com";
 	final String password = "";
 
 	@Override
