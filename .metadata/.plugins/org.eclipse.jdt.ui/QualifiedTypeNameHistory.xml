@@ -46,4 +46,10 @@
 <fullyQualifiedTypeName name="javax.annotation.Resource"/>
 <fullyQualifiedTypeName name="poly.persistance.mapper.IOcrMapper"/>
 <fullyQualifiedTypeName name="config.Mapper"/>
+<fullyQualifiedTypeName name="javax.cache.configuration.Configuration"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.conf.Configuration"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.fs.FileSystem"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.fs.Path"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.fs.FSDataOutputStream"/>
+<fullyQualifiedTypeName name="org.apache.hadoop.fs.FSDataInputStream"/>
 </qualifiedTypeNameHistroy>
