@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- JAVA와 연결할 Mapper 파일 설정 -->
+<mapper namespace="poly.persistance.mapper.IAccStatMapper">
+
+<select id="getAccStatInfo" parameterType="AccStatDTO" resultType="AccStatDTO">
+	SELECT
+		YYYYMM,
+		A_CODE,
+		A_NAME,
+		STAT_A,
+		STAT_B,
+		REG_ID,
+		REG_DT,
+		CHG_ID,
+		CHG_DT
+	FROM ACCIDENT_STAT
+	WHERE 1=1
+	
+	<!-- AccStatDTO 의 yyyymm 변수의 값이 존재한다면..
+		일반적으로 아무값이 있는 경우에 대해 조건문을 작성한다면,
+		반드시 null 체크와 ''인지 확인하는 구분이 필요하다.
+		그러나 myBatis에서 null 체크 로직없이, (!='' => ''값이 아니라면)만
+		작성한 이유는 Controller에서 전송받는 파라미터인 yyyymm 변수에 Cmmutil.nvl 함수를 통해
+		Null 값을 강제로 '' 변경했기 때문이다. 따라서  !=''만 작성한다. -->
+	
+	<if test='yyyymm != ""'>
+		<![CDATA[
+		AND YYYYMM = #{yyyymm}
+		]]>
+	</if>
+	
+	<!-- AccStatDTO의 a_code 변수의 값이 존재한다면 -->
+	<if test='a_code != ""'>
+		<![CDATA[
+		AND A_CODE = #{a_code}
+		]]>
+	</if>
+</select>
+
+
+</mapper>
